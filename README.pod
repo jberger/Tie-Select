@@ -26,7 +26,7 @@ L<Tie::Select> offers a localizable interface to C<select>. Simply assign a hand
 
  {
    local $SELECT = *STDERR;
-   print "This goes to STDERR";
+   print "To STDERR";
  }
 
 The inspiration for this type of interface is L<File::chdir> which provides a similar localizable interface to the current working directory.
