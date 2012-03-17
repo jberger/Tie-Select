@@ -18,6 +18,7 @@ my $builder = Module::Build->new(
   meta_merge => {
     resources  => {
       repository => "http://github.com/jberger/Tie-Select",
+      bugtracker => "http://github.com/jberger/Tie-Select/issues",
     },
     no_index => {
       file => [ 'README.pod' ],
