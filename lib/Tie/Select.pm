@@ -42,9 +42,10 @@ Tie::Select - Provides a localized interface to the C<select> function
 
 The Perl builtin C<print>, when not called with an explicit file handle, will print to the file handle designated by the C<select> command. This is a global action, which is bad. Further, it has an awkward interface for restoring a previous handle; on a call to C<select> a reference to the old handle is returned, which has to itself be C<select>-ed to restore the old handle. Better to see an example.
 
- my $stdin = select *STDERR;
+ my $stdout = select *STDERR;
  print "To STDERR";
- select $stdin;
+ select $stdout;
+ print "To STDOUT";
 
 L<Tie::Select> offers a localizable interface to C<select>. Simply assign a handle to the C<$SELECT> variable provided by this module to change the C<select>-ed handle. If this is done with C<local> the change is dynamically bound to the enclosing scope. Therefore the above example becomes simply:
 
