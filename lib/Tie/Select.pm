@@ -8,7 +8,7 @@ $VERSION = eval $VERSION;
 
 use Exporter;
 our @ISA = qw/ Exporter /;
-our @EXPORT = qw/ $SELECT /;
+our @EXPORT = qw/ *SELECT /;
 
 tie our $SELECT, __PACKAGE__ 
   or die q/Can't tie $SELECT/;
