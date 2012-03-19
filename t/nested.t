@@ -6,7 +6,7 @@ use Test::More tests => 12;
 use Tie::Select;
 
 {
-  diag("Nested blocks");
+  #Nested blocks
 
   open my $handle1, '>', \my $var1;
   open my $handle2, '>', \my $var2;
@@ -26,7 +26,7 @@ use Tie::Select;
 }
 
 {
-  diag("Multiple selects per block, all local");
+  #Multiple selects per block, all local
 
   open my $handle1, '>', \my $var1;
   open my $handle2, '>', \my $var2;
@@ -48,7 +48,7 @@ use Tie::Select;
 }
 
 {
-  diag("Multiple selects per block, only one local per block");
+  #Multiple selects per block, only one local per block
 
   open my $handle1, '>', \my $var1;
   open my $handle2, '>', \my $var2;
