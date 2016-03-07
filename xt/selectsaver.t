@@ -1,13 +1,11 @@
 use strict;
 use warnings;
 
-use Test::More tests => 12;
+use Test::More;
 
 use SelectSaver;
 
-{
-  diag("Nested blocks");
-
+subtest 'nested blocks' => sub {
   open my $handle1, '>', \my $var1;
   open my $handle2, '>', \my $var2;
 
@@ -23,11 +21,9 @@ use SelectSaver;
 
   print "-2";
   is( $var1, "Var 1-2", "outer scope, second time" );
-}
+};
 
-{
-  diag("Multiple selects per block, all my");
-
+subtest 'Multiple selects per block, all my' => sub {
   open my $handle1, '>', \my $var1;
   open my $handle2, '>', \my $var2;
 
@@ -45,11 +41,9 @@ use SelectSaver;
 
   print "-2";
   is( $var1, "Var 1-2", "restored (all my)" );
-}
+};
 
-{
-  diag("Multiple selects per block, only one my per block");
-
+subtest 'Multiple selects per block, only one my per block' => sub {
   open my $handle1, '>', \my $var1;
   open my $handle2, '>', \my $var2;
 
@@ -67,11 +61,9 @@ use SelectSaver;
 
   print "-2";
   is( $var1, "Var 1-2", "restored (one my)" );
-}
+};
 
-{
-  diag("Multiple selects, not my");
-
+subtest 'Multiple selects, not my' => sub {
   open my $handle1, '>', \my $var1;
   open my $handle2, '>', \my $var2;
 
@@ -89,4 +81,7 @@ use SelectSaver;
 
   print "-2";
   is( $var2, "Var 2-2", "not restored because not my" );
-}
+};
+
+done_testing;
+
